@@ -1,7 +1,17 @@
 package com.study.springframework.module1;
 
-public interface Coach {
+import java.util.List;
 
-	String getDailyWorkout();
+public abstract class Coach {
+
+	protected CoachExercisesService coachExercisesService;
+	
+	public Coach(CoachExercisesService coachExercisesService) {
+		this.coachExercisesService = coachExercisesService;
+	}
+	
+	public abstract String getDailyWorkout();
+	
+	public abstract List<String> getFullDailyWorkouts();
 	
 }

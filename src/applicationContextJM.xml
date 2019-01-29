@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
     	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring0context.xsd">
 
-	<bean
-		id="myCoach"
-		class="com.study.springframework.module1.SoccerCoach"
-	></bean>
-	
-	<bean
-		id="myLoggerConfig"
+	<bean id="myCoachExercisesService"
+		class="com.study.springframework.module1.impl.SoccerCoachExercisesService"></bean>
+
+	<bean id="myCoach"
+		class="com.study.springframework.module1.impl.SoccerCoach">
+			<constructor-arg ref="myCoachExercisesService" />
+	</bean>
+
+	<bean id="myLoggerConfig"
 		class="com.study.springframework.config.MyLoggerConfig"
 		init-method="initLogger">
-		
+
 		<property name="rootLoggerLevel" value="FINE"></property>
 		<property name="printedLoggerLevel" value="FINE"></property>
-		
+
 	</bean>
 
 </beans>

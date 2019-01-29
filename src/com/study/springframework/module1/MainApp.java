@@ -1,5 +1,7 @@
 package com.study.springframework.module1;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /*
@@ -18,6 +20,13 @@ public class MainApp {
 		Coach coach = context.getBean("myCoach", Coach.class);
 		
 		System.out.println(coach.getDailyWorkout());
+		
+		List<String> fullDailyWorkouts = coach.getFullDailyWorkouts();
+		
+		System.out.println("Print full coach exercises");
+		for (String string : fullDailyWorkouts) {
+			System.out.println(string);
+		}
 		
 		context.close();
 	}
