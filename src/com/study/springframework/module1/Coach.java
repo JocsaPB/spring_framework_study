@@ -6,6 +6,8 @@ public abstract class Coach {
 
 	protected CoachExercisesService coachExercisesService;
 	
+	private Boolean isInVacation;
+
 	// Default constructor para implementar Dependency Injection for Setter "TrackCoach"
 	public Coach() {}
 	
@@ -16,5 +18,13 @@ public abstract class Coach {
 	public abstract String getDailyWorkout();
 	
 	public abstract List<String> getFullDailyWorkouts();
-	
+
+	public Boolean getIsInVacation() {
+		return isInVacation;
+	}
+
+	public void setIsInVacation(Boolean isInVacation) {
+		this.isInVacation = isInVacation;
+	}
+		
 }

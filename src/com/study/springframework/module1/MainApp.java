@@ -19,7 +19,11 @@ public class MainApp {
 		// obtendo bean através do spring container
 		Coach coach = context.getBean("myCoach", Coach.class);
 		
-		System.out.println(coach.getDailyWorkout());
+		if(coach.getIsInVacation()) {
+			System.out.println("Is not possible offer any exercises. Coach in vacation!");
+		} else {
+			System.out.println(coach.getDailyWorkout());
+		}
 		
 		List<String> fullDailyWorkouts = coach.getFullDailyWorkouts();
 		

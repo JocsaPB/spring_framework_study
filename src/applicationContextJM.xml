@@ -18,6 +18,7 @@
 	<bean id="myCoach"
 		class="com.study.springframework.module1.impl.TrackCoach">
 			<property name="coachExercisesService" ref="myCoachExercisesService" />
+			<property name="isInVacation" value="true"></property>
 	</bean>
 
 	<bean id="myLoggerConfig"
