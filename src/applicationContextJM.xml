@@ -10,9 +10,14 @@
 	<bean id="myCoachExercisesService"
 		class="com.study.springframework.module1.impl.SoccerCoachExercisesService"></bean>
 
+<!-- 	<bean id="myCoach"
+ 		class="com.study.springframework.module1.impl.SoccerCoach">
+ 			<constructor-arg ref="myCoachExercisesService" />
+	</bean> -->
+	
 	<bean id="myCoach"
-		class="com.study.springframework.module1.impl.SoccerCoach">
-			<constructor-arg ref="myCoachExercisesService" />
+		class="com.study.springframework.module1.impl.TrackCoach">
+			<property name="coachExercisesService" ref="myCoachExercisesService" />
 	</bean>
 
 	<bean id="myLoggerConfig"

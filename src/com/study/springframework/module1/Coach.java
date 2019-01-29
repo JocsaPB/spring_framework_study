@@ -6,6 +6,9 @@ public abstract class Coach {
 
 	protected CoachExercisesService coachExercisesService;
 	
+	// Default constructor para implementar Dependency Injection for Setter "TrackCoach"
+	public Coach() {}
+	
 	public Coach(CoachExercisesService coachExercisesService) {
 		this.coachExercisesService = coachExercisesService;
 	}

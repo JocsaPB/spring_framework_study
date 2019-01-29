@@ -23,9 +23,9 @@ public class MainApp {
 		
 		List<String> fullDailyWorkouts = coach.getFullDailyWorkouts();
 		
-		System.out.println("Print full coach exercises");
+		System.out.println("Print full coach exercises: ");
 		for (String string : fullDailyWorkouts) {
-			System.out.println(string);
+			System.out.println("   " + string);
 		}
 		
 		context.close();
