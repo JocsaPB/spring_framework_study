@@ -22,4 +22,12 @@ public class TrackCoach extends Coach {
 		this.coachExercisesService = coachExercisesService;
 	}
 	
+	public void init() {
+		System.out.println("Init TrackCoach");
+	}
+	
+	public void destroy() {
+		System.out.println("Destroy TrackCoach");
+	}
+	
 }
