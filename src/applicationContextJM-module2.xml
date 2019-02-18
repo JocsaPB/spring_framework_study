@@ -7,22 +7,10 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:property-placeholder location="classpath:properties.properties" />
+	<!-- Informa ao spring para scaner as classes do pacote informado -->
+	<context:component-scan
+		base-package="com.study.springframework.module2" />
 
-	<bean id="myCoachExercisesService"
-		class="com.study.springframework.module1.impl.SoccerCoachExercisesService"></bean>
-
-<!-- 	<bean id="myCoach"
- 		class="com.study.springframework.module1.impl.SoccerCoach">
- 			<constructor-arg ref="myCoachExercisesService" />
- 			<property name="isInVacation" value="${soccerCoachIsInVacation}"></property>
-	</bean> -->
-	
-	<bean id="myCoach"
-		class="com.study.springframework.module1.impl.TrackCoach">
-			<property name="coachExercisesService" ref="myCoachExercisesService" />
-			<property name="isInVacation" value="${trackCoachIsInVacation}"></property>
-	</bean>
 
 	<bean id="myLoggerConfig"
 		class="com.study.springframework.config.MyLoggerConfig"
