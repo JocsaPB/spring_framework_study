@@ -11,10 +11,12 @@ import com.study.springframework.module2.impl.DoSomethingElseInjection;
  * */
 public class MainAppModule2 {
 
+	private static final String PATH = "file:srcXml/com/study/springframework/module2/";
+	
 	public static void main(String[] args) {
 		
 		ClassPathXmlApplicationContext context
-			= new ClassPathXmlApplicationContext("applicationContextJM-module2.xml");
+			= new ClassPathXmlApplicationContext(PATH + "applicationContextJM-module2.xml");
 		
 		// Obtendo Bean declarado através de anotação @Component		
 		Circle ballBean = context.getBean("soccerBall", Circle.class);

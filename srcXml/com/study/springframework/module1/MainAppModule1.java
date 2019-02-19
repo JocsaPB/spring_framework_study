@@ -11,10 +11,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * */
 public class MainAppModule1 {
 
+	private static final String PATH = "file:srcXml/com/study/springframework/module1/";
+	
 	public static void main(String[] args) {
 
 		// lendo arquivo de configuração
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContextJM-module1.xml");
+		ClassPathXmlApplicationContext context
+			= new ClassPathXmlApplicationContext(PATH + "applicationContextJM-module1.xml");
 
 		// obtendo bean através do spring container
 		Coach coach = context.getBean("myCoach", Coach.class);
