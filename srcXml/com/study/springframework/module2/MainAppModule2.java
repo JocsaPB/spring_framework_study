@@ -29,6 +29,14 @@ public class MainAppModule2 {
 		
 		System.out.println(doSomething.getClass().getSimpleName() + " - " + doSomething.usingCircleToDoSomething());
 		
+		Circle steeringWheelBlue = context.getBean("steeringWheel", Circle.class);
+		Circle steeringWheelGreen = context.getBean("steeringWheel", Circle.class);
+		
+		System.out.println("steeringWheelBlue is the same steeringWheelGreen? " + (steeringWheelBlue == steeringWheelGreen) );
+		
+		steeringWheelBlue = null;
+		steeringWheelGreen = null;
+		
 		context.close();
 	}
 	
