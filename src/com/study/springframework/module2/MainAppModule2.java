@@ -2,6 +2,7 @@ package com.study.springframework.module2;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.study.springframework.module2.impl.Ball;
 import com.study.springframework.module2.impl.DoSomethingElseInjection;
 
 
@@ -18,13 +19,15 @@ public class MainAppModule2 {
 		// Obtendo Bean declarado através de anotação @Component		
 		Circle ballBean = context.getBean("soccerBall", Circle.class);
 		
-		System.out.println(ballBean.whatDoForReal());
+		System.out.println(ballBean.getClass().getSimpleName() + " - " + ballBean.whatDoForReal()+"\n");
+		System.out.print("Obtendo valores por arquivos de propriedades no bean Ball : -> ");
+		System.out.println(( (Ball) ballBean ).getValueDefaultTest());
 		System.out.println("Finalizando instanciação de Bean através de anotação @Component e context.getBean()\n");
 		
 		// Usando @Autowired dentro da classe DoSomethingElseInjection
 		DoSomethingElseInjection doSomething = context.getBean("doSomethingElseInjection", DoSomethingElseInjection.class);
 		
-		System.out.println(doSomething.usingCircleToDoSomething());
+		System.out.println(doSomething.getClass().getSimpleName() + " - " + doSomething.usingCircleToDoSomething());
 		
 		context.close();
 	}
