@@ -34,14 +34,14 @@ public class Main {
 //		Student student4 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
 //		studentRepository.save(student4);
 		
-//		Student studentRetrieved = studentRepository.retrieve(2L);
+		Student studentRetrieved = studentRepository.retrieve(2L);
 		
-		List<Student> retrieveAll = studentRepository.retrieveAll();
-		
-		for (Student student : retrieveAll) {
-			
-			System.out.println(student);
-		}
+//		List<Student> retrieveAll = studentRepository.retrieveAll();
+//		
+//		for (Student student : retrieveAll) {
+//			
+//			System.out.println(student);
+//		}
 				
 		factory.close();
 	}
