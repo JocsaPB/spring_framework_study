@@ -2,6 +2,7 @@ package com.hibernate.study;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -24,19 +25,24 @@ public class Main {
 		
 		StudentRepository studentRepository = new StudentRepository();
 		
-		Student student = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
-		studentRepository.save(student);
-		Student student2 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
-		studentRepository.save(student2);
-		Student student3 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
-		studentRepository.save(student3);
-		Student student4 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
-		studentRepository.save(student4);
+//		Student student = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
+//		studentRepository.save(student);
+//		Student student2 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
+//		studentRepository.save(student2);
+//		Student student3 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
+//		studentRepository.save(student3);
+//		Student student4 = new Student("Jocsã Misrraine", "Vasconcelos", "jocsadw@gmail.com");
+//		studentRepository.save(student4);
 		
-		Student studentRetrieved = studentRepository.retrieve(2L);
+//		Student studentRetrieved = studentRepository.retrieve(2L);
 		
-		System.out.println(studentRetrieved);
+		List<Student> retrieveAll = studentRepository.retrieveAll();
 		
+		for (Student student : retrieveAll) {
+			
+			System.out.println(student);
+		}
+				
 		factory.close();
 	}
 
