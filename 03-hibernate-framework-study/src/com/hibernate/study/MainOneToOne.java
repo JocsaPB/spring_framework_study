@@ -34,6 +34,8 @@ public class MainOneToOne {
 		
 		factory.getCurrentSession().getTransaction().commit();
 		
+		factory.getCurrentSession().close();
+		
 		factory.close();
 	}
 

@@ -27,7 +27,7 @@ public class Instructor {
 	private String email;
 	
 	@OneToOne(cascade = CascadeType.ALL) // por padrão, nenhuma estratégia de cascata é definida
-	@JoinColumn(name = "instructor_detail_id")
+	@JoinColumn(name = "instructor_detail_id") // refere-se a coluna id da tabela estrangeira
 	private InstructorDetail instructorDetail;
 
 	public Instructor() {}

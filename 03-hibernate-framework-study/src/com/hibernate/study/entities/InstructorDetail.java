@@ -23,7 +23,10 @@ public class InstructorDetail {
 	private String hobby;
 	
 	// mappedBy: refere-se a propriedade na classe forte que faz referencia a esta entidade, tornando bidirecional
-	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+	@OneToOne(
+			mappedBy = "instructorDetail",
+			// Será possível executar todas as operações em cascata, exceto a operação de remoção, por segurança
+			cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Instructor instructor;
 
 	public Long getId() {
