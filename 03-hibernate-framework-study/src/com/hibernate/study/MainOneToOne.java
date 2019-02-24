@@ -26,9 +26,9 @@ public class MainOneToOne {
 		
 //		factory.getCurrentSession().save(insctructor);
 		
-		Instructor find = factory.getCurrentSession().find(Instructor.class, 1L);
+		InstructorDetail find = factory.getCurrentSession().find(InstructorDetail.class, 2L);
 		
-		System.out.println(find);
+		System.out.println(find + "\n\n" + find.getInstructor());
 		
 		factory.getCurrentSession().delete(find);
 		

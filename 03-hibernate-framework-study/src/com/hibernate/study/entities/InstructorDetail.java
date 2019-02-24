@@ -1,10 +1,12 @@
 package com.hibernate.study.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,10 @@ public class InstructorDetail {
 	private String youtuberChannel;
 	
 	private String hobby;
+	
+	// mappedBy: refere-se a propriedade na classe forte que faz referencia a esta entidade, tornando bidirecional
+	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+	private Instructor instructor;
 
 	public Long getId() {
 		return id;
@@ -51,6 +57,14 @@ public class InstructorDetail {
 	@Override
 	public String toString() {
 		return "InstructorDetail [id=" + id + "\n, youtuberChannel=" + youtuberChannel + "\n, hobby=" + hobby + "]\n";
+	}
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 	
 }
