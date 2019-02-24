@@ -2,12 +2,15 @@ package com.hibernate.study.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Student {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "first_name")
@@ -20,9 +23,8 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(Long id, String firstName, String lasName, String email) {
+	public Student(String firstName, String lasName, String email) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lasName = lasName;
 		this.email = email;
@@ -30,10 +32,6 @@ public class Student {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
