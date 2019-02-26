@@ -1,5 +1,7 @@
 package com.hibernate.study.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -30,6 +33,10 @@ public class Instructor {
 	@JoinColumn(name = "instructor_detail_id") // refere-se a coluna id da tabela estrangeira
 	private InstructorDetail instructorDetail;
 
+	@OneToMany(mappedBy = "instructor",
+			cascade = { CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.PERSIST })
+	private List<Course> courses;
+	
 	public Instructor() {}
 	
 	public Instructor(String firstName, String lasName, String email, InstructorDetail instructorDetail) {
@@ -75,11 +82,20 @@ public class Instructor {
 	public Long getId() {
 		return id;
 	}
+	
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 
 	@Override
 	public String toString() {
-		return "Instructor [id=" + id + "\n, firstName=" + firstName + "\n, lasName=" + lasName + "\n, email=" + email
-				+ "\n, instructorDetail=" + instructorDetail + "]\n\n";
+		return "Instructor [id=" + id + ", firstName=" + firstName + ", lasName=" + lasName + ", email=" + email
+				+ ", instructorDetail=" + instructorDetail + ", courses=" + courses + "]";
 	}
+
 }
 
